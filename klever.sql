@@ -1,10 +1,13 @@
-CREATE TABLE Rec_empleados(
-Cod_emp NUMBER(3) NOT NULL,
-Nombre VARCHAR2(2)null,
-F_ingreso date null,
-Puesto varchar(2) null,
-Edad number(2) null,
-N_hijos SMALLINT null,
-Sueldo_Base number null,
-constraint pk_empleados PRIMARY key (Cod_emp)
-)
+CREATE OR REPLACE FUNCTION NEMP 
+(
+  totalempleados IN NUMBER 
+) RETURN varchar2 AS 
+
+totalemplados number;
+BEGIN
+select count(*) into totalempleados from rec_empleados;
+DBMS_output.put_line('****************************************');
+DBMS_output.put_line('****Total Empleados tratados '|| totalempleados ||' **************');
+DBMS_output.put_line('****Total Nómina totalnomina *****************');
+DBMS_output.put_line('****************************************');
+END NEMP;
